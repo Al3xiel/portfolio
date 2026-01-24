@@ -5,7 +5,7 @@ import Lara from '@primeuix/themes/lara';
 import {PrimeNG} from 'primeng/config';
 import {LayoutService} from '../../service/layout.service';
 import {isPlatformBrowser, NgClass, NgStyle} from '@angular/common';
-import {$t, updatePreset, updateSurfacePalette} from '@primeuix/themes';
+import {$t, updatePreset} from '@primeuix/themes';
 
 const presets = {
   Aura,
@@ -30,6 +30,57 @@ export interface ColorPalette {
     950?: string;
   };
 };
+
+const MY_CUSTOM_PALETTES: ColorPalette[] = [
+  {
+    name: 'blue',
+    palette: {
+      50: '#e8f1ff',
+      100: '#d5e4ff',
+      200: '#b3ccff',
+      300: '#85a8ff',
+      400: '#5676ff',
+      500: '#2f45ff',
+      600: '#0c0eff',
+      700: '#0000ff',
+      800: '#0609cd',
+      900: '#10169f',
+      950: '#0a0b5c'
+    }
+  },
+  {
+    name: 'red',
+    palette: {
+      50: '#fff0f0',
+      100: '#ffdddd',
+      200: '#ffc0c0',
+      300: '#ff9494',
+      400: '#ff5757',
+      500: '#ff2323',
+      600: '#ff0000',
+      700: '#d70000',
+      800: '#b10303',
+      900: '#920a0a',
+      950: '#500000'
+    }
+  },
+  {
+    name: 'sage',
+    palette: {
+      50: '#f5f8f7',
+      100: '#ddeae5',
+      200: '#b3d0c6',
+      300: '#90b8ac',
+      400: '#69988b',
+      500: '#4f7d71',
+      600: '#3e635a',
+      700: '#34514b',
+      800: '#2d423e',
+      900: '#283935',
+      950: '#13201d'
+    }
+  }
+];
 
 @Component({
   selector: 'app-theme-selector',
@@ -70,27 +121,16 @@ export class ThemeSelector {
     const presetPalette =
       presets[this.layoutService.appState().preset as KeyOfType<typeof presets>]
         .primitive;
-    const colors = [
+    const baseColors = [
       'emerald',
-      'green',
-      'lime',
-      'orange',
       'amber',
-      'yellow',
-      'teal',
       'cyan',
-      'sky',
-      'blue',
       'indigo',
-      'violet',
-      'purple',
       'fuchsia',
-      'pink',
-      'rose',
     ];
     const palettes: ColorPalette[] = [];
 
-    colors.forEach((color) => {
+    baseColors.forEach((color) => {
       palettes.push({
         name: color,
         palette: presetPalette?.[
@@ -98,7 +138,7 @@ export class ThemeSelector {
           ] as ColorPalette['palette'],
       });
     });
-    return palettes;
+    return [...MY_CUSTOM_PALETTES, ...palettes];
   });
 
   getPresetExt() {
