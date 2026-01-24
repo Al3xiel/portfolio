@@ -2,7 +2,7 @@ import {Component, signal} from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import {PrimeNG} from 'primeng/config';
 import {Topbar} from './shared/components/topbar/topbar';
-import {BioCard} from './shared/components/bio-card/bio-card';
+import {BioCard} from './bio/components/bio-card/bio-card';
 
 @Component({
   selector: 'app-root',
