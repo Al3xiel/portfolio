@@ -1,1 +1,50 @@
-<p>bio-links works!</p>
+<p-toast position="bottom-right" [breakpoints]="{ '768px': { width: '80%', right: '10%', left: '10%' } }">></p-toast>
+<div class="flex flex-col sm:flex-row md:flex-col lg:flex-row items-center  md:items-start gap-4 bg-transparent">
+  <div>
+    <div class="w-32 h-32 md:w-40 md:h-40 flex items-center justify-center rounded-full bg-primary-100 dark:bg-primary-800 shrink-0">
+      <i class="pi pi-user text-primary-900 dark:text-primary-300" style="font-size: 4rem"></i>
+    </div>
+  </div>
+
+  <div class="flex flex-row gap-2 h-full">
+    <div class="flex flex-col gap-2 items-center md:items-start justify-center h-full">
+      <div class="flex flex-row gap-2 items-center">
+        <div class="w-10 h-10 flex items-center justify-center rounded-full bg-primary-100 dark:bg-primary-800 shrink-0">
+          <i class="pi pi-link text-primary-900 dark:text-primary-300"></i>
+        </div>
+        <div class="text-2xl font-semibold text-primary-900 dark:text-primary-300">
+          <p>Links</p>
+        </div>
+      </div>
+      <div class="w-auto text-sm text-surface-700 dark:text-surface-300 hover:text-primary hover:dark:text-primary cursor-pointer transition-colors whitespace-nowrap">
+        <a href="https://www.linkedin.com/in/gabriel-alexander-casas-sanchez-974222343/" target="_blank" rel="noopener noreferrer">
+          <div class="flex flex-row items-center gap-2">
+            <i class="pi pi-linkedin text-xl"></i>
+            <p class="font-medium">
+              Gabriel Alexander Casas Sanchez
+            </p>
+          </div>
+        </a>
+      </div>
+      <div class="w-auto text-sm text-surface-700 dark:text-surface-300 hover:text-primary hover:dark:text-primary cursor-pointer transition-colors whitespace-nowrap">
+        <a href="https://github.com/Al3xiel" target="_blank" rel="noopener noreferrer">
+          <div class="flex flex-row items-center gap-2">
+            <i class="pi pi-github text-xl"></i>
+            <p class="font-medium">
+              Al3xiel
+            </p>
+          </div>
+        </a>
+      </div>
+      <div class="w-auto text-sm text-surface-700 dark:text-surface-300 hover:text-primary hover:dark:text-primary cursor-pointer transition-colors whitespace-nowrap"
+           (click)="copyToClipboard('gabriel280104casas@gmail.com')">
+        <div class="flex flex-row items-center gap-2">
+          <i class="pi pi-envelope text-xl"></i>
+          <p class="font-medium">
+            gabriel280104casas@gmail.com
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
