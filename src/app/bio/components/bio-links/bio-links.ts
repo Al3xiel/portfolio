@@ -1,10 +1,11 @@
 import {Component, inject} from '@angular/core';
 import { ToastModule } from 'primeng/toast';
 import { MessageService } from 'primeng/api';
+import {TranslatePipe} from '@ngx-translate/core';
 
 @Component({
   selector: 'app-bio-links',
-  imports: [ToastModule],
+  imports: [ToastModule, TranslatePipe],
   providers: [MessageService],
   templateUrl: './bio-links.html',
   styleUrl: './bio-links.scss',

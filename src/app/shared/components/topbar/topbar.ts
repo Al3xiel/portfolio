@@ -4,6 +4,7 @@ import {NgClass} from '@angular/common';
 import {Button} from 'primeng/button';
 import {StyleClass} from 'primeng/styleclass';
 import {ThemeSelector} from '../theme-selector/theme-selector';
+import {LanguageSwitcher} from '../language-switcher/language-switcher';
 
 @Component({
   selector: 'app-topbar',
@@ -11,7 +12,8 @@ import {ThemeSelector} from '../theme-selector/theme-selector';
     NgClass,
     Button,
     StyleClass,
-    ThemeSelector
+    ThemeSelector,
+    LanguageSwitcher
   ],
   templateUrl: './topbar.html',
   styleUrl: './topbar.scss',
