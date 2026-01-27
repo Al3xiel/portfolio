@@ -8,5 +8,15 @@
       "copyError": "No se pudo copiar el texto",
       "copy": "¡Copiado!"
     }
+  },
+  "skills": {
+    "title": "Habilidades",
+    "subtitle": "Tecnologías con las que he trabajado",
+    "frontend": "Frontend",
+    "backend": "Backend",
+    "devops": "DevOps",
+    "languages": "Languages",
+    "tools": "Tools",
+    "mobile": "Mobile"
   }
 }

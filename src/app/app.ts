@@ -4,10 +4,11 @@ import {PrimeNG} from 'primeng/config';
 import {Topbar} from './shared/components/topbar/topbar';
 import {BioSection} from './bio/components/bio-section/bio-section';
 import {TranslateService} from '@ngx-translate/core';
+import {SkillsSection} from './skills/components/skills-section/skills-section';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, Topbar, BioSection],
+  imports: [RouterOutlet, Topbar, BioSection, SkillsSection],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
