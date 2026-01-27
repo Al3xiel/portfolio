@@ -15,8 +15,8 @@ import {TranslateService} from '@ngx-translate/core';
 export class LanguageSwitcher {
   private translate = inject(TranslateService);
   stateOptions = [
-    { label: 'EN', value: 'en' },
-    { label: 'ES', value: 'es' }
+    { label: 'en', value: 'en' },
+    { label: 'es', value: 'es' }
   ];
   value: string = this.translate.getCurrentLang() || 'en';
 
