@@ -1,0 +1,9 @@
+<p-selectbutton
+  [options]="stateOptions"
+  [(ngModel)]="value"
+  optionLabel="label"
+  optionValue="value"
+  [allowEmpty]="false"
+  (onChange)="changeLanguage($event)"
+  aria-labelledby="language-switcher">
+</p-selectbutton>
