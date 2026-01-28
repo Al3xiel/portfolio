@@ -18,5 +18,10 @@
     "languages": "Languages",
     "tools": "Tools",
     "mobile": "Mobile"
+  },
+  "projects": {
+    "title": "Projects",
+    "subtitle": "Some of my recent work",
+    "viewMore": "View More"
   }
 }
