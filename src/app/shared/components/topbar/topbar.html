@@ -1,43 +1,45 @@
-<div class="w-full bg-surface-0 dark:bg-surface-950 p-4 border-b-2 border-primary-200 dark:border-primary-600">
- <div class="flex items-center justify-between">
-   <div class="flex items-center">
-
-   </div>
-   <div class="flex items-center gap-2">
-     <app-language-switcher></app-language-switcher>
-     <button
-       type="button"
-       class="cursor-pointer w-10 h-10 flex items-center justify-center rounded-full
+<p-menubar [model]="items" class="w-full! bg-surface-0! dark:bg-surface-950! px-4! md:px-10! border-x-0! border-t-0! border-b-2! border-primary-200! dark:border-primary-600!">
+  <ng-template #item let-item let-root="root">
+    <a pRipple class="flex items-center px-4 py-3 cursor-pointer gap-2">
+      <span>{{ item.label }}</span>
+    </a>
+  </ng-template>
+  <ng-template #end>
+    <div class="flex items-center gap-2">
+      <app-language-switcher></app-language-switcher>
+      <button
+        type="button"
+        class="cursor-pointer w-10 h-10 flex items-center justify-center rounded-full
        hover:bg-surface-100 dark:hover:bg-surface-800
        transition-all
        text-surface-950 dark:text-surface-0
        focus-visible:outline-hidden focus-visible:ring-1 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-surface-0
        dark:focus-visible:ring-offset-surface-950"
-       (click)="toggleDarkMode()"
-     >
-       <i
-         class="pi text-base"
-         [ngClass]="{
+        (click)="toggleDarkMode()"
+      >
+        <i
+          class="pi text-base"
+          [ngClass]="{
                 'pi-moon': isDarkMode(),
                 'pi-sun': !isDarkMode()
               }"
-       ></i>
-     </button>
-     <div class="relative">
-       <p-button
-         pStyleClass="@next"
-         enterFromClass="hidden"
-         enterActiveClass="animate-scalein"
-         leaveToClass="hidden"
-         leaveActiveClass="animate-fadeout"
-         [hideOnOutsideClick]="true"
-         icon="pi pi-cog"
-         text
-         rounded
-         aria-label="Settings"
-       />
+        ></i>
+      </button>
+      <div class="relative">
+        <p-button
+          pStyleClass="@next"
+          enterFromClass="hidden"
+          enterActiveClass="animate-scalein"
+          leaveToClass="hidden"
+          leaveActiveClass="animate-fadeout"
+          [hideOnOutsideClick]="true"
+          icon="pi pi-cog"
+          text
+          rounded
+          aria-label="Settings"
+        />
         <app-theme-selector class="hidden"/>
-     </div>
-   </div>
- </div>
-</div>
+      </div>
+    </div>
+  </ng-template>
+</p-menubar>

@@ -5,6 +5,8 @@ import {Button} from 'primeng/button';
 import {StyleClass} from 'primeng/styleclass';
 import {ThemeSelector} from '../theme-selector/theme-selector';
 import {LanguageSwitcher} from '../language-switcher/language-switcher';
+import {Menubar} from 'primeng/menubar';
+import {MenuItem} from 'primeng/api';
 
 @Component({
   selector: 'app-topbar',
@@ -13,7 +15,8 @@ import {LanguageSwitcher} from '../language-switcher/language-switcher';
     Button,
     StyleClass,
     ThemeSelector,
-    LanguageSwitcher
+    LanguageSwitcher,
+    Menubar
   ],
   templateUrl: './topbar.html',
   styleUrl: './topbar.scss',
@@ -21,7 +24,21 @@ import {LanguageSwitcher} from '../language-switcher/language-switcher';
 export class Topbar {
   layoutService: LayoutService = inject(LayoutService);
   isDarkMode = computed(() => this.layoutService.appState().darkMode);
-
+  items: MenuItem[] | undefined;
+  ngOnInit() {
+    this.items = [
+      {
+        label: 'Home',
+        icon: 'pi pi-fw pi-home',
+        routerLink: ['/']
+      },
+      {
+        label: 'Projects',
+        icon: 'pi pi-fw pi-briefcase',
+        routerLink: ['/projects']
+      }
+      ];
+  }
   toggleDarkMode() {
     this.layoutService.appState.update((state) => ({
       ...state,
