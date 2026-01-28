@@ -1,12 +1,13 @@
-import {Component, computed, inject} from '@angular/core';
+import {Component, computed, inject, OnInit} from '@angular/core';
 import {LayoutService} from '../../service/layout.service';
 import {NgClass} from '@angular/common';
 import {Button} from 'primeng/button';
 import {StyleClass} from 'primeng/styleclass';
 import {ThemeSelector} from '../theme-selector/theme-selector';
 import {LanguageSwitcher} from '../language-switcher/language-switcher';
-import {Menubar} from 'primeng/menubar';
+import { MenubarModule } from 'primeng/menubar';
 import {MenuItem} from 'primeng/api';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-topbar',
@@ -16,12 +17,13 @@ import {MenuItem} from 'primeng/api';
     StyleClass,
     ThemeSelector,
     LanguageSwitcher,
-    Menubar
+    MenubarModule
   ],
   templateUrl: './topbar.html',
   styleUrl: './topbar.scss',
 })
-export class Topbar {
+export class Topbar implements OnInit {
+  router = inject(Router);
   layoutService: LayoutService = inject(LayoutService);
   isDarkMode = computed(() => this.layoutService.appState().darkMode);
   items: MenuItem[] | undefined;
@@ -29,13 +31,17 @@ export class Topbar {
     this.items = [
       {
         label: 'Home',
-        icon: 'pi pi-fw pi-home',
-        routerLink: ['/']
+        icon: 'pi pi-home',
+        command: () => {
+          this.router.navigate(['/home']);
+        }
       },
       {
         label: 'Projects',
-        icon: 'pi pi-fw pi-briefcase',
-        routerLink: ['/projects']
+        icon: 'pi pi-briefcase',
+        command: () => {
+          this.router.navigate(['/projects']);
+        }
       }
       ];
   }

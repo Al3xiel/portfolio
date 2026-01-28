@@ -1,11 +1,12 @@
 <p-menubar [model]="items" class="w-full! bg-surface-0! dark:bg-surface-950! px-4! md:px-10! border-x-0! border-t-0! border-b-2! border-primary-200! dark:border-primary-600!">
   <ng-template #item let-item let-root="root">
-    <a pRipple class="flex items-center px-4 py-3 cursor-pointer gap-2">
+    <a pRipple class="flex items-center p-2 cursor-pointer gap-2">
+      <i [class]="item.icon"></i>
       <span>{{ item.label }}</span>
     </a>
   </ng-template>
   <ng-template #end>
-    <div class="flex items-center gap-2">
+    <div class="flex items-center gap-3">
       <app-language-switcher></app-language-switcher>
       <button
         type="button"
